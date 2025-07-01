@@ -71,11 +71,8 @@
   </style>
 </head>
 <body class="antialiased">
-
-  <!-- Star background -->
   <canvas id="starfield-canvas"></canvas>
 
-  <!-- Floating Theme Toggle -->
   <div class="floating-btn">
     <button id="themeToggle" class="p-3 bg-purple-600 text-white rounded-full neon-glow hover:rotate-90 transition-transform">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -85,7 +82,6 @@
     </button>
   </div>
 
-  <!-- Hero Section -->
   <section class="min-h-screen flex flex-col items-center justify-center text-center px-4">
     <h1 id="hero-title" class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 font-code"></h1>
     <p class="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl">I build seamless, cross-platform experiences that feel like the future.</p>
@@ -94,7 +90,20 @@
     </a>
   </section>
 
-  <!-- Sample Project Section -->
+  <section id="about" class="py-20">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-white mb-6 text-center scroll-reveal">About Me</h2>
+      <div class="max-w-4xl mx-auto text-center scroll-reveal">
+        <p class="text-lg text-slate-300 mb-6">
+          I am Mahabub Alam Tamim, a Computer Science and Engineering student with a passion for travel content creation. With 5 years of experience in branding, content creation, video editing, and graphic design, I specialize in crafting visually compelling stories and building impactful brand experiences. I help brands connect with their audiences through innovative content strategies and authentic visual storytelling, aligning them with cultural trends for maximum engagement.
+        </p>
+        <a href="#" class="inline-block border-2 border-purple-500 text-purple-400 font-bold py-3 px-8 rounded-lg hover:bg-purple-500 hover:text-white transition-all duration-300">
+          Download CV
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section id="projects" class="py-20">
     <div class="container mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-12 text-white scroll-reveal">Latest Builds</h2>
@@ -114,7 +123,6 @@
   </section>
 
   <script>
-    // Starfield Background
     const canvas = document.getElementById('starfield-canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
@@ -171,7 +179,6 @@
       initStars();
     });
 
-    // Typing animation
     const heroTitle = document.getElementById('hero-title');
     const textToType = "Tamim: Flutter Architect";
     let index = 0;
@@ -187,7 +194,6 @@
     }
     window.onload = type;
 
-    // Scroll Reveal Animation
     const scrollElements = document.querySelectorAll('.scroll-reveal');
     const revealOnScroll = () => {
       scrollElements.forEach(el => {
@@ -200,12 +206,10 @@
     window.addEventListener('scroll', revealOnScroll);
     revealOnScroll();
 
-    // Theme Toggle
     const themeBtn = document.getElementById('themeToggle');
     themeBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark');
     });
   </script>
-
 </body>
 </html>
