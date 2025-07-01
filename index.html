@@ -1,24 +1,104 @@
-<!-- full document content here, keeping everything the same -->
-<section id="projects" class="py-20">
-  <div class="container mx-auto px-6">
-    <h2 class="text-4xl font-bold text-center mb-12 text-white scroll-reveal">Latest Builds</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Project Nova (x6) -->
-      <!-- Repeating the same card 6 times -->
-      <!-- You can loop this via backend or JS in the future -->
-      ".repeat(6).replace(/".repeat\(6\).*/, "") + `
-      <div class="glass-effect p-6 rounded-xl project-card scroll-reveal">
-        <img src="https://placehold.co/600x400/0f172a/9333ea?text=Project+Nova" alt="Project Nova" class="rounded-lg mb-4" />
-        <h3 class="text-2xl font-bold text-white mb-2">Project Nova</h3>
-        <p class="text-slate-400 mb-4">AI-powered dashboard with predictive insights and real-time data sync.</p>
-        <div class="flex flex-wrap gap-2 mb-4">
-          <span class="bg-slate-700 text-purple-400 text-xs font-code px-2 py-1 rounded">Flutter</span>
-          <span class="bg-slate-700 text-purple-400 text-xs font-code px-2 py-1 rounded">Firebase</span>
-        </div>
-        <a href="#" class="font-bold text-purple-400 hover:underline">View Case Study →</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tamim - Flutter Architect Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #030617;
+      color: #e2e8f0;
+      font-family: 'Poppins', sans-serif;
+    }
+    .glass-effect {
+      background: rgba(17, 24, 39, 0.6);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(147, 51, 234, 0.2);
+    }
+    .project-card {
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+    }
+    .project-card:hover {
+      transform: perspective(1000px) rotateY(5deg) rotateX(10deg) scale3d(1.05, 1.05, 1.05);
+    }
+  </style>
+</head>
+<body class="antialiased px-4 sm:px-6 lg:px-8">
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-12 text-white">Latest Builds</h2>
+      <div id="project-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- JS will render project cards here -->
       </div>
-      `.repeat(5) + "
     </div>
-  </div>
-</section>
-<!-- rest of the content stays unchanged -->
+  </section>
+
+  <script>
+    const projects = [
+      {
+        title: "Project Nova",
+        description: "AI-powered dashboard with predictive insights and real-time data sync.",
+        image: "https://placehold.co/600x400/0f172a/9333ea?text=Project+Nova",
+        tags: ["Flutter", "Firebase"]
+      },
+      {
+        title: "ConnectSphere",
+        description: "A high-performance social media app with real-time chat.",
+        image: "https://placehold.co/600x400/0f172a/9333ea?text=ConnectSphere",
+        tags: ["Flutter", "Riverpod", "GraphQL"]
+      },
+      {
+        title: "Wanderlust AR",
+        description: "An immersive AR travel guide overlaying history on real-world locations.",
+        image: "https://placehold.co/600x400/0f172a/9333ea?text=Wanderlust+AR",
+        tags: ["Flutter", "ARCore", "Google Maps API"]
+      },
+      {
+        title: "UmbraShare",
+        description: "A smart umbrella sharing system with QR code check-in/check-out.",
+        image: "https://placehold.co/600x400/0f172a/9333ea?text=UmbraShare",
+        tags: ["Flutter", "Dart", "Cloud Firestore"]
+      },
+      {
+        title: "EduSync LMS",
+        description: "A learning platform with live classes, chat, and course progress tracking.",
+        image: "https://placehold.co/600x400/0f172a/9333ea?text=EduSync",
+        tags: ["Flutter", "Node.js", "MongoDB"]
+      },
+      {
+        title: "FitTrack Pro",
+        description: "Fitness tracker app with AI meal suggestions and activity analysis.",
+        image: "https://placehold.co/600x400/0f172a/9333ea?text=FitTrack",
+        tags: ["Flutter", "TensorFlow Lite", "Firebase"]
+      }
+    ];
+
+    const container = document.getElementById('project-grid');
+
+    projects.forEach(project => {
+      const card = document.createElement('div');
+      card.className = 'glass-effect p-6 rounded-xl project-card';
+
+      const tags = project.tags.map(tag => 
+        `<span class='bg-slate-700 text-purple-400 text-xs font-mono px-2 py-1 rounded'>${tag}</span>`
+      ).join(' ');
+
+      card.innerHTML = `
+        <img src="${project.image}" alt="${project.title}" class="rounded-lg mb-4" />
+        <h3 class="text-2xl font-bold text-white mb-2">${project.title}</h3>
+        <p class="text-slate-400 mb-4">${project.description}</p>
+        <div class="flex flex-wrap gap-2 mb-4">${tags}</div>
+        <a href="#" class="font-bold text-purple-400 hover:underline">View Case Study →</a>
+      `;
+
+      container.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
