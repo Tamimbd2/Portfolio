@@ -297,14 +297,8 @@ const App = () => {
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12">About Me</h2>
           <div className="flex flex-col md:flex-row items-center md:space-x-12">
-            <div className="md:w-1/3 mb-8 md:mb-0">
-              <img
-                src="http://googleusercontent.com/file_content/1"
-                alt="Your Photo"
-                className="rounded-full shadow-xl mx-auto w-48 h-48 md:w-64 md:h-64 object-cover border-4 border-[#5378f6]"
-              />
-            </div>
-            <div className="md:w-2/3 text-lg text-gray-300 leading-relaxed">
+            {/* Removed photo div */}
+            <div className="md:w-full text-lg text-gray-300 leading-relaxed text-center md:text-left"> {/* Adjusted width and alignment */}
               {portfolioData.about.paragraph1 && <p className="mb-4">{portfolioData.about.paragraph1}</p>}
               {portfolioData.about.paragraph2 && <p className="mb-4">{portfolioData.about.paragraph2}</p>}
               {portfolioData.about.paragraph3 && <p>{portfolioData.about.paragraph3}</p>}
